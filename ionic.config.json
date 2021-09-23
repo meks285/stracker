@@ -1,0 +1,7 @@
+{
+  "name": "stracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
