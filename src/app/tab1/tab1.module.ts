@@ -6,9 +6,10 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports: [
+  imports: [HttpClientModule,
     IonicModule,
     CommonModule,
     FormsModule,

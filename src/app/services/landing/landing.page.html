@@ -1,0 +1,25 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-text>
+    <h1>Welcome</h1>
+    <p>
+      Get started by logging into your account.
+    </p>
+  </ion-text>
+  <div class="actions">
+    <div class="login-buttons">
+      <ion-button (click)="navregister()">
+        <ion-avatar>
+          <img src="../../../assets/images/logo.png">
+        </ion-avatar>
+        <ion-label style="font-size: 12px; font-weight: 600;">Register</ion-label>
+      </ion-button>
+    </div>
+    
+  <div class="separator">
+    <div class="line left"></div>
+    <div class="line right"></div>
+    <p class="login">Existing User? <a (click)="login()">login now</a></p>
+  </div>
+  </div>
+  </ion-content>
+  

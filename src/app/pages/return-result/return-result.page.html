@@ -1,0 +1,76 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+    <div class="back-circle"></div>
+		<ion-title class="ion-text-center custom-font" style="font-weight: 700;">S-Tracker</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#8295A3" d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+  </svg>
+
+  <div class="ion-padding">
+
+    <form class="ion-padding">
+      <div style="padding-bottom: 10px;">
+        <ion-label style="font-weight: 600; text-align: center; text-decoration: underline;">Return Result:</ion-label>
+      </div>
+      <div class="wrap-input">
+        <input onfocus="(this.type='date')" class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="sort_date" id="sort_date" placeholder="Sort Date: (mm/dd/yyyy)">
+      </div>
+      <div class="wrap-input">
+        <ion-select (ionChange)="load_lgas(state.state)"  class="input" value="notifications" interface="action-sheet" [ngModelOptions]="{standalone: true}" [(ngModel)]="state" id="state" placeholder="State" required>
+          <ion-select-option [value]="state" *ngFor="let state of strIntoObj_state">{{state.state}}</ion-select-option>
+        </ion-select>          
+      </div>         
+      <div class="wrap-input">
+        <ion-select (ionChange)="load_facility(lga.lga)" class="input" value="notifications" interface="action-sheet" [ngModelOptions]="{standalone: true}" [(ngModel)]="lga" id="lga" placeholder="LGA" required>
+          <ion-select-option [value]="lga" *ngFor="let lga of strIntoObj_lga">{{lga.lga}}</ion-select-option>
+        </ion-select>          
+      </div>         
+      <div class="wrap-input">
+        <ion-select class="input" value="notifications" interface="action-sheet" [ngModelOptions]="{standalone: true}" [(ngModel)]="facility" id="facility" placeholder="Facility" required>
+          <ion-select-option [value]="facility" *ngFor="let facility of strIntoObj_facility">{{facility.facility}}</ion-select-option>
+        </ion-select>          
+      </div>         
+      <div class="wrap-input">
+        <ion-select [ngModelOptions]="{standalone: true}" [(ngModel)]="test_type" id="test_type" class="input" placeholder="Test Type" interface="popover">
+          <ion-select-option value="Viral Load">Viral Load</ion-select-option>
+          <ion-select-option value="EID">EID</ion-select-option>
+        </ion-select>          
+      </div>  
+      <div class="wrap-input">
+        <input class="input" type="number"  [ngModelOptions]="{standalone: true}" [(ngModel)]="num_of_results" id="num_of_results" placeholder="# of Results Dispatched">
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="number"  [ngModelOptions]="{standalone: true}" [(ngModel)]="tag_no_from" id="tag_no_from" placeholder="Tag No (From)" (input)="getTagNoLimit(num_of_results,$event)">
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="number"  [ngModelOptions]="{standalone: true}" [(ngModel)]="tag_no_to" id="tag_no_to" placeholder="Tag No (To)">
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="pending_results" id="pending_results" placeholder="Tag No For Pending Results">
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="dispatching_officer" id="dispatching_officer" placeholder="Dispatching Officer" readonly>
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="receiving_officer" id="receiving_officer" placeholder="Receiving Officer">
+      </div>
+      <div class="wrap-input">
+        <input class="input" type="textarea"  [ngModelOptions]="{standalone: true}" [(ngModel)]="remarks" id="remarks" placeholder="Remarks">
+      </div>
+       
+      <div class="container-form-btn">
+        <button class="form-btn custom-font" (click)="uploadResult()">
+        Submit
+        </button>
+      </div>   
+  
+    </form>
+  
+  </div>
+</ion-content>

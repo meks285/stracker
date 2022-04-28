@@ -1,0 +1,58 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+    <div class="back-circle"></div>
+		<ion-title class="ion-text-center custom-font" style="font-weight: 700;">S-Tracker</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#8295A3" d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+  </svg>
+
+  <div style="padding-bottom: 10px;">
+    <form> 
+      <div style="padding-bottom: 5px;">
+        <ion-label style="font-weight: 600; text-align: center; text-decoration: underline;">Register User/Facilty:</ion-label>
+      </div>
+      <div class="wrap-input">
+      <input class="input" type="text" [(ngModel)]="first_name" [ngModelOptions]="{standalone: true}" id="first_name" placeholder="First Name">
+      </div>
+  
+      <div class="wrap-input">
+        <input class="input" type="text" [(ngModel)]="last_name" [ngModelOptions]="{standalone: true}" id="last_name" placeholder="Last Name">
+        </div>
+            
+        <div class="wrap-input">
+          <ion-select value="notifications" interface="action-sheet" [ngModelOptions]="{standalone: true}" [(ngModel)]="facility" name="facility" placeholder="Facility" required>
+            <ion-select-option [value]="facility" *ngFor="let facility of strIntoObj">{{facility.facility}}</ion-select-option>
+          </ion-select>          
+        </div>
+
+        <div class="wrap-input">
+          <ion-select [(ngModel)]="facilitycat" [ngModelOptions]="{standalone: true}" id="facilitycat" class="input" placeholder="Facility Category" interface="popover">
+            <ion-select-option value="Spoke">Spoke</ion-select-option>
+            <ion-select-option value="Hub">Hub</ion-select-option>
+            <ion-select-option value="Both">Both</ion-select-option>
+            <ion-select-option value="PCRLab">PCRLab</ion-select-option>
+          </ion-select>          
+        </div>
+    
+      <div class="wrap-input">
+        <input class="input" type="email" [(ngModel)]="email_id" [ngModelOptions]="{standalone: true}" id="email_id" placeholder="Email">
+        </div>
+         
+        <div class="wrap-input">
+          <input class="input" type="tel" [(ngModel)]="phonenumber" [ngModelOptions]="{standalone: true}" id="phonenumber" placeholder="Phone Number">
+        </div>
+           
+      <div class="container-form-btn">
+        <button class="form-btn custom-font" (click)="registeruserfac()">
+        Register
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>

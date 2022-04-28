@@ -1,0 +1,55 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+    <div class="back-circle"></div>
+		<ion-title class="ion-text-center custom-font" style="font-weight: 700;">S-Tracker</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <svg class="back-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#8295A3" d="M68.6,-33.5C81.6,-17.2,79.6,13.8,65.7,37.6C51.8,61.3,25.9,77.8,2.1,76.6C-21.7,75.4,-43.5,56.5,-54.2,34.6C-65,12.7,-64.8,-12.3,-53.9,-27.4C-43,-42.4,-21.5,-47.6,3.2,-49.4C27.9,-51.2,55.7,-49.7,68.6,-33.5Z" transform="translate(100 100)" />
+  </svg>
+
+  <div class="ion-padding">
+    <form class="ion-padding"> 
+      <div style="padding-bottom: 10px;">
+        <ion-label style="font-weight: 600; text-align: center; text-decoration: underline;">Receive Result:</ion-label>
+      </div>
+     <div class="wrap-input" *ngFor="let resultset of strIntoObj_resultset; index as pos">
+      <ion-label style="font-weight: bold; padding-left: 12px; color: #00A7BB;">{{resultset.tracking_number}}</ion-label> <br/>
+      <ion-label style="font-weight: bold; padding-left: 12px;">{{resultset.tag_no_from}} - {{resultset.tag_no_to}}</ion-label> <br/>
+      <ion-label style="padding-left: 12px;">{{resultset.rec_facility}}</ion-label> <br/>
+      <ion-label style="padding-left: 12px;">Total Result: {{resultset.no_resultsdispatched}}</ion-label> <br/>
+      <ion-label style="padding-left: 12px;">Total Entered Result: {{resultset.total_entered_result}}</ion-label> <br/>
+      <ion-button style="padding-left: 10px;" (click)="recResult(resultset.id)">RECEIVE RESULT</ion-button>
+<br/>
+      <ion-item *ngIf="add_result==1">
+        <table>
+          <tr>
+            <div class="wrap-input">
+            <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="patient_id" id="patient_id" placeholder="Patient/Lab ID">
+          </div>
+          </tr>
+          <tr>
+            <div class="wrap-input">
+            <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="tag_no" id="tag_no" placeholder="Tag No">
+          </div>
+          </tr>
+          <tr>
+            <div class="wrap-input">
+            <input class="input" type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="result" id="result" placeholder="Enter Result">
+          </div>
+          </tr>
+          <tr>
+            <button class="form-btn custom-font" (click)="submitResult(resultset.rec_facility,patient_id,tag_no,result,resultset.id,resultset.total_entered_result,resultset.no_resultsdispatched,resultset.tag_no_from,resultset.tag_no_to)">
+              Submit
+            </button>
+         </tr>
+        </table>
+      </ion-item>
+    </div>
+    </form>
+  </div>
+</ion-content>

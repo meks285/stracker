@@ -24,3 +24,34 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.my-custom-class {
+    --backdrop-opacity: 0.2;
+    --background: linear-gradient(90deg, rgb(193, 229, 255) 1%, rgba(129,148,162, 1) 100%);
+    button.alert-button.exit-button{
+        color: #ffffff;
+        text-decoration: underline;
+        text-decoration-color: #ffffff;
+        --background: linear-gradient(90deg, rgb(255, 255, 255) 1%, rgb(255, 255, 255) 100%);
+        font-weight: 500;
+        font-size: x-large;
+    }
+}
+
+.my-custom-class-two {
+    --backdrop-opacity: 0.2;
+    --background: linear-gradient(90deg, rgb(193, 229, 255) 1%, rgba(129,148,162, 1) 100%);
+    --spinner-color: #fff;
+    color: #fff;
+  }
+  .my-custom-alert {
+    --background:  rgba(129,148,162, 0);
+    --spinner-color: #fff;
+    color: rgb(0, 0, 0);
+    font-family: 'Assistant', sans-serif !important;
+    button.alert-button.exit-button{
+      color: #fff;
+      font-size: large;
+      background-color: #00A7BB;
+    }
+  }
