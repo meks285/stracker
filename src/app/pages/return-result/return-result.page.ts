@@ -121,7 +121,7 @@ async load_facility(lga){
         });
       }
       else{
-          var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/create_result.php?sort_date='+this.sort_date+'&state='+this.state.state+'&lga='+this.lga.lga+'&facility='+this.facility.facility+'&test_type='+this.test_type+'&num_of_results='+this.num_of_results+'&tag_no_from='+this.tag_no_from+'&tag_no_to='+this.tag_no_to+'&pcrlab='+this.pcrlab+'&pending_results='+this.pending_results+'&dispatching_officer='+this.dispatching_officer+'&receiving_officer='+this.receiving_officer+'&remarks='+this.remarks+'&data_clerk='+this.useremail;
+          var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/create_result.php?sort_date='+this.sort_date+'&state='+this.state.state+'&lga='+this.lga.lga+'&facility='+this.facility.facility+'&test_type='+this.test_type+'&num_of_results='+this.num_of_results+'&tag_no_from='+this.tag_no_from+'&tag_no_to='+this.tag_no_to+'&pcrlab='+this.pcrlab+'&pending_results='+this.pending_results+'&dispatching_officer='+this.dispatching_officer+'&receiving_officer='+this.receiving_officer+'&remarks='+this.remarks+'&data_clerk='+this.useremail;
           this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
               if(data=="success"){
                 loading.dismiss();

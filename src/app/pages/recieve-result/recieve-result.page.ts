@@ -42,7 +42,7 @@ export class RecieveResultPage implements OnInit {
       cssClass: 'my-custom-class-two'
     });
     await loading.present();
-      var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/get_dispatched_result.php?facility='+facility+'&email='+email;
+      var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/get_dispatched_result.php?facility='+facility+'&email='+email;
       this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
         //this.resultset = data; 
         this.strIntoObj_resultset = JSON.parse(data);
@@ -58,7 +58,7 @@ export class RecieveResultPage implements OnInit {
         cssClass: 'my-custom-class-two'
       });
       await loading.present();      
-      var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/recieve_result.php?result_id='+id;
+      var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/recieve_result.php?result_id='+id;
       this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
           if(data=="success"){
           loading.dismiss();

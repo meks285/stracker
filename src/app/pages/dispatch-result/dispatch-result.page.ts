@@ -42,7 +42,7 @@ export class DispatchResultPage implements OnInit {
       cssClass: 'my-custom-class-two'
     });
     await loading.present();
-      var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/get_active_result.php?facility='+facility+'&email='+email;
+      var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/get_active_result.php?facility='+facility+'&email='+email;
       this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
         //this.resultset = data; 
         this.strIntoObj_resultset = JSON.parse(data);
@@ -71,7 +71,7 @@ export class DispatchResultPage implements OnInit {
       this.result=result;
       if((parseInt(total_entered_result) < parseInt(no_resultsdispatched)) && (tag_no !== undefined || result !== undefined || patient_id !== undefined)){
         if((tag_no >= tag_no_from) && (tag_no <= tag_no_to)){
-          var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/add_result.php?patient_id='+patient_id+'&tag_no='+tag_no+'&result='+result+'&id='+id+'&tag_no_from='+tag_no_from+'&tag_no_to='+tag_no_to+'&pcrlab='+this.facility+'&rec_facility='+rec_facility;
+          var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/add_result.php?patient_id='+patient_id+'&tag_no='+tag_no+'&result='+result+'&id='+id+'&tag_no_from='+tag_no_from+'&tag_no_to='+tag_no_to+'&pcrlab='+this.facility+'&rec_facility='+rec_facility;
           this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
               if(data=="success"){
                 this.getRecFacility_Contact(rec_facility);
@@ -217,7 +217,7 @@ export class DispatchResultPage implements OnInit {
         cssClass: 'my-custom-class-two'
       });
       await loading.present();
-      var apiUrl_x= 'http://41.242.58.145:88/apindb_vl/stracker/apis/dispatch_result.php?sort_id='+sort_id;
+      var apiUrl_x= 'http://105.113.2.249:88/apindb_vl/stracker/apis/dispatch_result.php?sort_id='+sort_id;
       this.http.get(apiUrl_x, {responseType: 'text'}).subscribe( data => {
           if(data=="success"){
             loading.dismiss();
